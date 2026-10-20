@@ -1,2 +1,491 @@
+/* =========================================================
+   WHISTA MEDIA - styles.css (styling only, no behaviour)
+   Page order: black, white, blue, black, white, red,
+               black, blue, white, green, black (copyright)
+   ========================================================= */
+
+/* 1. TOKENS */
+:root {
+  --black: #0a0a0a;
+  --white: #ffffff;
+  --blue: #16407a;
+  --red: #e31b23;
+  --red-dark: #b91019;
+  --green: #0b6b3a;
+  --soft: #f2f2f2;
+  --ink: #111111;
+  --font: "Jost", sans-serif;
+  --gap: 12px;
+  --speed: 0.5s;
+}
+
+/* 2. BASE */
+* { box-sizing: border-box; margin: 0; }
+
+html { scroll-padding-top: 90px; }
+
+body {
+  font-family: var(--font);
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--white);
+  background: var(--black);
+  overflow-x: hidden;
+}
+
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button, input, select, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; }
+ul { padding: 0; list-style: none; }
+[hidden] { display: none; }
+
+a:focus-visible, button:focus-visible, input:focus-visible,
+select:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--red);
+  outline-offset: 3px;
+}
+
+h1, h2, h3 { line-height: 1.2; }
+h1 { font-size: clamp(36px, 10vw, 76px); font-weight: 200; letter-spacing: -1px; }
+h2 { font-weight: 300; }
+h3 { font-size: 17px; font-weight: 400; }
+
+.words h2,
+.image-text h2,
+main > section > h2 { font-size: clamp(26px, 7vw, 42px); }
+
+/* 3. COLOUR PAGES: each one is one phone screen tall */
+.page-box { width: 100%; overflow: clip; }
+
+main > section:not([hidden]) { display: flex; }
+
+main > section {
+  min-height: 100svh;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+  padding: 64px 6%;
+  scroll-margin-top: 90px;
+}
+
+main > section > h2,
+main > section > p { text-align: center; }
+
+#motto, #gallery-articles, #projects, footer {
+  background: var(--black);
+  border-left: 1px solid var(--red);
+  border-right: 1px solid var(--red);
+}
+
+#about-us, #services, #details { background: var(--white); color: var(--ink); }
+#Our-Team, #why-choose-us { background: var(--blue); }
+#newsletter { background: var(--red); }
+.more-about-info { background: var(--green); }
+#feedbackWall { background: var(--white); color: var(--ink); }
+
+/* 4. HEADER */
+.navbar-right { background: var(--black); }
+
+.topbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2px 16px;
+  padding: 8px 5%;
+  font-size: 11px;
+  background: #151515;
+}
+
+.top-auth { display: flex; gap: 14px; }
+
+.mainbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 5%;
+}
+
+.logo { display: inline-flex; align-items: center; gap: 10px; }
+.logo img { width: 42px; height: 42px; object-fit: contain; }
+.brand { font-size: 26px; font-weight: 300; letter-spacing: 1px; }
+.mainbar-right { display: flex; gap: 10px; }
+
+.icon-btn {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  background: #1a1a1a;
+  border: 0;
+  border-radius: 50%;
+  font-size: 18px;
+}
+
+.icon-btn:hover { background: var(--red); }
+
+/* 5. SEARCH BAR */
+.search-bar:not([hidden]) { display: flex; }
+
+.search-bar {
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  max-width: 800px;
+  margin: 12px 5%;
+  padding: 10px;
+  background: #181818;
+  border-radius: 10px;
+}
+
+.search-bar input {
+  flex: 1;
+  min-width: 0;
+  padding: 11px 12px;
+  background: #0f0f0f;
+  border: 0;
+  border-radius: 6px;
+}
+
+.search-bar button { min-width: 42px; min-height: 42px; background: var(--red); border: 0; border-radius: 6px; }
+.search-msg { flex-basis: 100%; font-size: 12px; }
+
+/* 6. SLIDING MENU */
+.menu-overlay { position: fixed; inset: 0; z-index: 1100; background: rgba(0, 0, 0, 0.75); }
+
+.menu-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1101;
+  width: min(320px, 85vw);
+  height: 100dvh;
+  padding: 80px 26px 30px;
+  overflow-y: auto;
+  background: #111111;
+}
+
+.menu-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 42px;
+  height: 42px;
+  background: #242424;
+  border: 0;
+  border-radius: 50%;
+}
+
+.menu-drawer li a { display: block; padding: 14px 0; font-size: 17px; }
+.menu-drawer li a:hover { color: var(--red); }
+
+/* 7. BLACK PAGE: MOTTO */
+#motto { align-items: flex-start; }
+
+/* 8. WHITE PAGE: SLIDING WORDS AND DOTS */
+.words .slide { display: none; align-items: center; justify-content: space-between; gap: 18px; }
+.words .slide.active { display: flex; animation: fade var(--speed) ease; }
+
+.words .slide::after {
+  content: "↗";
+  display: grid;
+  flex: 0 0 44px;
+  height: 44px;
+  place-items: center;
+  border: 1px solid var(--ink);
+  border-radius: 50%;
+  font-size: 20px;
+}
+
+.slider-dots { display: flex; gap: 8px; }
+
+.slider-dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  background: rgba(0, 0, 0, 0.25);
+  border: 0;
+  border-radius: 8px;
+  transition: width var(--speed) ease, background var(--speed) ease;
+}
+
+.slider-dot.active { width: 26px; background: var(--red); }
+
+/* 9. BLUE PAGE: PICTURE SLIDER */
+.picture-slider {
+  position: relative;
+  height: 65svh;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.picture-slider .slide { display: none; height: 100%; }
+.picture-slider .slide.active { display: block; animation: fade var(--speed) ease; }
+.picture-slider a { display: block; height: 100%; }
+.picture-slider img { width: 100%; height: 100%; object-fit: cover; }
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 3;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  background: rgba(0, 0, 0, 0.6);
+  border: 0;
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+
+.arrow.prev { left: 12px; }
+.arrow.next { right: 12px; }
+.arrow:hover { background: var(--red); }
+
+/* 10. BLACK PAGE: GALLERY AND ARTICLES */
+.panel {
+  position: relative;
+  flex: 1;
+  min-height: 200px;
+  display: flex;
+  align-items: flex-end;
+  padding: 22px;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.panel img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+
+.panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.05) 80%);
+}
+
+.panel span { position: relative; z-index: 2; font-size: 26px; font-weight: 300; }
+
+/* 11. WHITE PAGE: SERVICES */
+.services-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+
+.service {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 8px;
+  text-align: center;
+  background: var(--soft);
+  border-radius: 10px;
+}
+
+.service img { width: 46px; height: 46px; object-fit: contain; }
+.service .label { font-size: 12.5px; font-weight: 400; line-height: 1.4; }
+.service:hover { background: var(--ink); color: var(--white); }
+
+.quote-btn {
+  align-self: center;
+  padding: 13px 30px;
+  color: var(--white);
+  background: var(--red);
+  border-radius: 4px;
+  font-weight: 400;
+}
+
+.quote-btn:hover { background: var(--red-dark); }
+
+/* 12. RED PAGE: HAPPY CLIENT PICTURE WITH WORDS ON IT */
+.image-text {
+  position: relative;
+  min-height: 70svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.image-text img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.image-text::after { content: ""; position: absolute; inset: 0; z-index: 1; background: rgba(0, 0, 0, 0.45); }
+
+.image-text h2 {
+  position: relative;
+  z-index: 2;
+  padding: 24px;
+  text-align: center;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+}
+
+/* 13. BLACK PAGE: PROJECTS */
+.grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
+.card { overflow: hidden; background: #161616; border-radius: 12px; }
+.card img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+.card h3 { margin: 14px 16px 4px; }
+.card p { margin: 0 16px 16px; font-size: 13px; color: #b5b5b5; }
+.card:hover h3 { color: var(--red); }
+
+/* 14. BLUE PAGE: WHY US (2 cards at a time, auto sliding) */
+.why-slider { overflow: hidden; }
+.why-track { display: flex; gap: var(--gap); transition: transform var(--speed) ease; }
+
+.why-card {
+  flex: 0 0 calc(50% - var(--gap) / 2);
+  padding: 24px 14px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+}
+
+.why-card h3 { margin-bottom: 8px; }
+.why-card p { font-size: 13px; line-height: 1.7; }
+
+.panel-icon { display: grid; place-items: center; width: 48px; height: 48px; margin: 0 auto 14px; font-size: 24px; background: rgba(255, 255, 255, 0.12); border-radius: 50%; }
+
+.why-track[data-step="1"] { transform: translateX(calc(-100% - var(--gap))); }
+.why-track[data-step="2"] { transform: translateX(calc(-200% - var(--gap) * 2)); }
+
+/* 15. WHITE PAGE: CONTACT FORM
+   Labels sit in the left column, boxes in the right column,
+   and every label is centred against its own box. */
+#contactForm {
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 22px 16px;
+  background: var(--soft);
+  border-radius: 12px;
+}
+
+.form-fields { display: grid; grid-template-columns: 78px minmax(0, 1fr); gap: 12px 10px; align-items: center; }
+.form-fields label { font-size: 13px; font-weight: 400; }
+
+.form-fields input,
+.form-fields select,
+.form-fields textarea {
+  width: 100%;
+  padding: 11px 12px;
+  background: var(--white);
+  border: 1px solid #d6d6d6;
+  border-radius: 6px;
+}
+
+.form-fields textarea { min-height: 110px; resize: vertical; }
+
+.form-fields button {
+  grid-column: 1 / -1;
+  padding: 14px;
+  color: var(--white);
+  background: var(--red);
+  border: 0;
+  border-radius: 6px;
+  font-weight: 400;
+}
+
+.form-fields button:hover { background: var(--red-dark); }
+
+/* 16. GREEN PAGE: MORE ABOUT US, DOWN TO THE GOOGLE NOTICE */
+.more-about-container { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 18px; }
+.about-info-column h2 { margin-bottom: 12px; font-size: 26px; }
+.about-info-column h3 { margin-bottom: 12px; }
+.about-info-column p { font-size: 12.5px; line-height: 1.8; }
+.about-info-column p a { text-decoration: underline; }
+.about-info-list { display: grid; gap: 8px; }
+.about-info-list a { font-size: 12.5px; }
+.about-info-list a:hover { text-decoration: underline; }
+
+.google-play-link { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 8px; padding: 10px 14px; background: var(--black); border-radius: 8px; }
+.google-play-icon { font-size: 24px; color: #44d17a; }
+.google-play-text { display: flex; flex-direction: column; line-height: 1.3; }
+.google-play-text small { font-size: 9px; letter-spacing: 1px; }
+.google-play-text strong { font-size: 15px; font-weight: 400; }
+
+.social-column { grid-column: 1 / -1; }
+.about-social-icons { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+
+.about-social-icons a {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 50%;
+}
+
+.about-social-icons a:hover { background: var(--red); }
+
+.about-social-icons svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.google-ownership-notice { grid-column: 1 / -1; padding-top: 18px; text-align: center; }
+.google-ownership-notice p { font-size: 11px; }
+
+/* 17. BLACK PAGE: COPYRIGHT */
+footer { padding: 22px 5%; text-align: center; font-size: 12px; }
+
+/* 18. FLOATING BUTTONS */
+#quoteFloat,
+#feedbackToggle {
+  position: fixed;
+  right: 14px;
+  z-index: 900;
+  padding: 10px 16px;
+  font-size: 12px;
+  font-weight: 400;
+  border-radius: 24px;
+}
+
+#quoteFloat { bottom: 66px; background: var(--red); }
+#feedbackToggle { bottom: 14px; background: #242424; }
+
+/* very small white "writing page" scroll-up column (3:4) */
+#backToTop {
+  position: fixed;
+  right: 20px;
+  bottom: 124px;
+  z-index: 850;
+  width: 30px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  color: var(--ink);
+  background: var(--white);
+  border-radius: 3px;
+  font-size: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+#backToTop:hover { background: var(--red); color: var(--white); }
+
+/* 19. ANIMATION */
+@keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+
+/* 20. LARGER SCREENS */
+@media (min-width: 768px) {
+  main > section { padding: 80px max(6%, calc((100% - 1200px) / 2)); }
+  .services-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .more-about-container { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .social-column { grid-column: auto; }
+  .form-fields { grid-template-columns: 110px minmax(0, 1fr); }
+  .picture-slider { height: 70svh; }
+}
+
+/* 21. MOTION PREFERENCES */
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --speed: 0.01ms; }
+}
 
 
