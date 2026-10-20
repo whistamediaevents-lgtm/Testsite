@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="WhistA Media offers professional marketing, graphic design, photography, videography, website development, chatbot, event planning and catering services.">
+  <meta name="author" content="WhistA Media">
+  <meta name="keywords" content="WhistA Media, Advertising, Marketing, Videos, Photoshoot, Social Media, Digital Marketing, Chatbots, Graphic Design, Events, Catering">
+  <meta property="og:title" content="WhistA Media">
+  <meta property="og:description" content="Professional media, marketing and event services to help businesses grow.">
+  <meta property="og:image" content="https://whistamedia.co.zw/image/whista-badge-black.png">
+  <meta property="og:url" content="https://whistamedia.co.zw/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="WhistA Media">
+  <title>WhistA Media | Creative Business Solutions</title>
+  
+<!-- Connect to Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<!-- Load the Jost font -->
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+
+<!-- Connect your CSS file -->
+<link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body id="top">
+
+<header class="navbar-right">
+  <div class="topbar">
+    <p>Email: <a href="mailto:whistamediaevents@gmail.com">whistamediaevents@gmail.com</a></p>
+    <p>Phone: <a href="tel:+263780148438">+263780148438</a></p>
+    <p class="top-auth"><a href="signup.html">Sign up</a> <a href="login.html">Log in</a></p>
+  </div>
+
+  <div class="mainbar">
+    <a href="index.html" class="logo">
+      <img src="image/logo.png" alt="WhistA Media logo">
+      <span class="brand">WhistA</span>
+    </a>
+    <div class="mainbar-right">
+      <button type="button" id="searchOpen" class="icon-btn" aria-label="Open search" aria-expanded="false">🔍</button>
+      <button type="button" id="menuOpen" class="icon-btn" aria-label="Open menu" aria-expanded="false">☰</button>
+    </div>
+  </div>
+</header>
+
+<form id="searchForm" class="search-bar" role="search" hidden>
+  <input type="search" id="searchInput" placeholder="Search our services..." aria-label="Search services">
+  <button type="submit" aria-label="Search">🔍</button>
+  <button type="button" id="searchClose" aria-label="Close search">✕</button>
+  <span id="searchMsg" class="search-msg" role="status"></span>
+</form>
+
+<div id="menuOverlay" class="menu-overlay" hidden></div>
+<nav id="menuDrawer" class="menu-drawer" aria-label="Main navigation" hidden>
+  <button type="button" id="menuClose" class="menu-close" aria-label="Close menu">✕</button>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="#about-us">About Us</a></li>
+    <li><a href="#services">Our Services</a></li>
+    <li><a href="#projects">Our Work</a></li>
+    <li><a href="article.html">Our Articles</a></li>
+    <li><a href="work-for-us.html">Work For Us</a></li>
+    <li><a href="#details">Get a Quote</a></li>
+    <li><a href="contact.html">Contact Us</a></li>
+  </ul>
+</nav>
+
+<div class="page-box">
+<main>
+
+  <!-- 1. BLACK: main motto -->
+  <section id="motto">
+    <h1>Helping Brands Reach Their Full Potential and Targets</h1>
+  </section>
+
+  <!-- 2. WHITE: sliding words + dots -->
+  <section id="about-us">
+    <div class="words">
+      <a href="about1.html" class="slide active"><h2>Read More About WhistA</h2></a>
+      <a href="about2.html" class="slide"><h2>Projects Done</h2></a>
+      <a href="about3.html" class="slide"><h2>Dive Deep Into Our Company</h2></a>
+      <a href="about4.html" class="slide"><h2>What Pushes Us!</h2></a>
+    </div>
+    <div class="slider-dots" id="mainDots"></div>
+  </section>
+
+  <!-- 3. BLUE: team pictures (slide together with the words) -->
+  <section id="Our-Team">
+    <div class="picture-slider">
+      <div class="slide active">
+        <a href="blog.html"><img src="image/motivation.jpeg" alt="Motivational Quote"></a>
+      </div>
+      <div class="slide">
+        <a href="contact.html"><img src="image/meeting.png" alt="WhistA Media working with clients"></a>
+        <a href="contact.html"><img src="image/presentation.png" alt="presentation"></a>
+        <a href="contact.html"><img src="image/marketer.png" alt="The Marketer"></a>
+      </div>
+      <button class="arrow prev" type="button" aria-label="Previous picture">&#10094;</button>
+      <button class="arrow next" type="button" aria-label="Next picture">&#10095;</button>
+    </div>
+  </section>
+
+  <!-- 4. BLACK: gallery and articles -->
+  <section id="gallery-articles">
+    <a href="gallery.html" class="panel">
+      <span>Our Gallery</span>
+    </a>
+    <a href="article.html" class="panel">
+      <span>Our Articles</span>
+    </a>
+  </section>
+
+  <!-- 5. WHITE: services -->
+  <section id="services">
+    <h2>Our Services</h2>
+    <div class="services-grid">
+      <a href="#details" class="service" data-service="news"><img src="image/news.jpeg" alt="News"><span class="label">All News</span></a>
+      <a href="#details" class="service" data-service="social"><img src="image/social.jpg" alt="Social and digital services"><span class="label">Social and Digital</span></a>
+      <a href="#details" class="service" data-service="graphic"><img src="image/graphic.jpeg" alt="Graphic design services"><span class="label">Graphic Designing</span></a>
+      <a href="#details" class="service" data-service="photoshoot"><img src="image/photoshoot.jpg" alt="Professional photoshoot"><span class="label">Photoshoot</span></a>
+      <a href="#details" class="service" data-service="strategy"><img src="image/strategy.jpeg" alt="Business strategy"><span class="label">Business Strategy</span></a>
+      <a href="#details" class="service" data-service="development"><img src="image/dev.jpg" alt="Development services"><span class="label">Development</span></a>
+      <a href="#details" class="service" data-service="chatbots"><img src="image/chatbot.jpeg" alt="Chatbot services"><span class="label">Chatbots</span></a>
+      <a href="#details" class="service" data-service="hosting"><img src="image/hosting.jpg" alt="Website hosting and SSL certificates"><span class="label">Hosting &amp; SSL Certificates</span></a>
+      <a href="#details" class="service" data-service="video"><img src="image/video.jpg" alt="Videography and video editing"><span class="label">Videography &amp; Editing</span></a>
+      <a href="#details" class="service" data-service="events"><img src="image/event.jpeg" alt="Event planning and hosting"><span class="label">Event Planning &amp; Hosting</span></a>
+      <a href="#details" class="service" data-service="catering"><img src="image/catering.jpg" alt="Catering equipment and chefs for hire"><span class="label">Catering Equipment &amp; Chefs for Hire</span></a>
+    </div>
+    <a href="#details" class="quote-btn">Contact Us</a>
+  </section>
+
+  <!-- 6. RED: happy client picture with motto written on it -->
+  <section id="newsletter">
+    <a href="contact.html" class="image-text">
+      <h2>Making Every Business Owner Smile With Our Brilliant &amp; Productive Ideas</h2>
+    </a>
+  </section>
+
+  <!-- 7. BLACK: projects -->
+  <section id="projects">
+    <h2>Our Featured Projects</h2>
+    <div class="grid">
+      <div class="card">
+        <a href="project1.html">
+          <img src="image/project1.jpeg" alt="Featured project one">
+          <h3>Project One</h3>
+          <p>Discover one of our featured projects and the solutions we provided.</p>
+        </a>
+      </div>
+      <div class="card">
+        <a href="project2.html">
+          <img src="image/project2.jpeg" alt="Featured project two">
+          <h3>Project Two</h3>
+          <p>Explore another project showcasing our creativity and expertise.</p>
+        </a>
+      </div>
+      <div class="card">
+        <a href="project3.html">
+          <img src="image/project3.jpeg" alt="Featured project three">
+          <h3>Project Three</h3>
+          <p>See how our ideas can help brands connect with their audiences.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. BLUE: why choose us (6 cards, 2 at a time, auto sliding) -->
+  <section id="why-choose-us">
+    <h2>Why Choose Us?</h2>
+    <p class="section-intro">Here are some of the reasons to choose WhistA Media in Zimbabwe and beyond.</p>
+    <div class="why-slider">
+      <div class="why-track" id="whyTrack" data-step="0">
+        <div class="why-card">
+          <div class="panel-icon" aria-hidden="true">⭐</div>
+          <h3>Creative Solutions</h3>
+          <p>We bring fresh ideas and creative thinking to help your brand stand out.</p>
+        </div>
+        <div class="why-card">
+          <div class="panel-icon" aria-hidden="true">💰</div>
+          <h3>Value for Your Budget</h3>
+          <p>We work with your goals and budget to find practical solutions for your business.</p>
+        </div>
+        <div class="why-card">
+          <div class="panel-icon" aria-hidden="true">🤝</div>
+          <h3>Client-Focused Service</h3>
+          <p>We listen to your needs and work with you to achieve your objectives.</p>
+        </div>
+        <div class="why-card">
+          <div class="panel-icon" aria-hidden="true">🚀</div>
+          <h3>Multiple Services</h3>
+          <p>Access creative, digital, marketing and event services in one place.</p>
+        </div>
+        <div class="why-card">
+          <div class="panel-icon" aria-hidden="true">⏱️</div>
+          <h3>On-Time Delivery</h3>
+          <p>We plan carefully and deliver your work when we promised it.</p>
+        </div>
+        <div class="why-card">
+          <div class="panel-icon" aria-hidden="true">🌍</div>
+          <h3>Local Knowledge</h3>
+          <p>We understand Zimbabwean businesses and can help you reach beyond borders.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. WHITE: contact form -->
+  <section id="details">
+    <h2>Get in Touch</h2>
+    <p>Tell us about your project and how we can help.</p>
+    <form action="/contact" method="POST" id="contactForm">
+      <div class="form-fields">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" autocomplete="name" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" autocomplete="email" required>
+
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" name="phone" autocomplete="tel">
+
+        <label for="service">Service</label>
+        <select id="service" name="service">
+          <option value="">Select a service</option>
+          <option value="social">Social and Digital</option>
+          <option value="graphic">Graphic Designing</option>
+          <option value="photoshoot">Photoshoot</option>
+          <option value="strategy">Strategy</option>
+          <option value="development">Development</option>
+          <option value="chatbots">Chatbots</option>
+          <option value="hosting">Hosting &amp; SSL Certificates</option>
+          <option value="video">Videography &amp; Editing</option>
+          <option value="events">Event Planning &amp; Hosting</option>
+          <option value="catering">Catering Equipment &amp; Chefs for Hire</option>
+        </select>
+
+        <label for="msg">Message</label>
+        <textarea id="msg" name="message" rows="4" placeholder="Tell us about your requirements" required></textarea>
+
+        <button type="submit">Send Message</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- 10. GREEN: more about us, down to the Google notice -->
+  <section class="more-about-info" id="more-about-info">
+    <div class="more-about-container">
+      <div class="about-info-column">
+        <h2>WhistA Media</h2>
+        <p>We provide creative media, digital and business services designed to help businesses communicate, connect and grow. <a href="about.html">Learn more about us</a>.</p>
+      </div>
+
+      <div class="about-info-column">
+        <h3>Check Out Our App</h3>
+        <a href="#YOUR_GOOGLE_PLAY_APP_URL" class="google-play-link" target="_blank" rel="noopener noreferrer">
+          <span class="google-play-icon" aria-hidden="true">▶</span>
+          <span class="google-play-text"><small>GET IT ON</small><strong>Google Play</strong></span>
+        </a>
+        <p>Available on Google Play.</p>
+      </div>
+
+      <div class="about-info-column">
+        <h3>Our Services</h3>
+        <ul class="about-info-list">
+          <li><a href="#services">Social and Digital</a></li>
+          <li><a href="#services">Graphic Designing</a></li>
+          <li><a href="#services">Photography and Videography</a></li>
+          <li><a href="#services">Development and Chatbots</a></li>
+          <li><a href="#services">Events and Catering</a></li>
+        </ul>
+      </div>
+
+      <div class="about-info-column">
+        <h3>Quick Links</h3>
+        <ul class="about-info-list">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="article.html">Our Articles</a></li>
+          <li><a href="help.html">Help Centre</a></li>
+          <li><a href="terms.html">Terms and Conditions</a></li>
+          <li><a href="certificate.html">ZIMRA Tax Clearance Certificate</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+        </ul>
+      </div>
+
+      <div class="about-info-column social-column">
+        <h3>Follow Us</h3>
+        <p>Follow our social media pages for updates and news.</p>
+        <div class="about-social-icons">
+          <a href="#YOUR_FACEBOOK_URL" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" stroke="none" d="M13.5 21v-8h2.7l.4-3h-3.1V8.1c0-.9.3-1.5 1.6-1.5h1.7V3.9c-.8-.1-1.7-.2-2.5-.2-2.5 0-4.2 1.5-4.2 4.3V10H7.3v3h2.8v8z"/></svg></a>
+          <a href="#YOUR_INSTAGRAM_URL" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2"/></svg></a>
+          <a href="#YOUR_TIKTOK_URL" target="_blank" rel="noopener noreferrer" aria-label="TikTok" title="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3v11a4 4 0 1 1-4-4 M14 3c.5 3 2.5 5 5 5"/></svg></a>
+          <a href="#YOUR_YOUTUBE_URL" target="_blank" rel="noopener noreferrer" aria-label="YouTube" title="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="M10 9l5 3-5 3z"/></svg></a>
+          <a href="#YOUR_WHATSAPP_URL" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" title="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.5-4A8 8 0 1 1 20 11.5z"/><path d="M9 8.5c.5 3 2 4.5 5 5.5l1-1.5-2-1-1 1c-1-.5-1.5-1-2-2l1-1-1-2z"/></svg></a>
+          <a href="#YOUR_REDDIT_URL" target="_blank" rel="noopener noreferrer" aria-label="Reddit" title="Reddit"><svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="14" rx="8" ry="5.5"/><circle cx="9" cy="13.5" r="1"/><circle cx="15" cy="13.5" r="1"/><path d="M9 16.5c1.7 1 4.3 1 6 0M12 8.5l1-4 4 1"/><circle cx="18" cy="5.5" r="1.2"/></svg></a>
+          <a href="#YOUR_X_URL" target="_blank" rel="noopener noreferrer" aria-label="X" title="X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3h4.5L20 21h-4.5zM20 3L4 21"/></svg></a>
+          <a href="#YOUR_LINKEDIN_URL" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" stroke="none" d="M5 8H2v14h3zM3.5 2a1.8 1.8 0 1 0 0 3.6 1.8 1.8 0 0 0 0-3.6zM22 13.5c0-4-2.1-5.9-5-5.9-2.3 0-3.4 1.3-4 2.2V8H10v14h3v-7.3c0-1.9.4-3.8 2.8-3.8s2.4 2.2 2.4 3.9V22h3z"/></svg></a>
+        </div>
+      </div>
+
+      <div class="google-ownership-notice">
+        <p>Google Play and the Google Play logo are trademarks of Google LLC.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="feedbackWall" hidden>
+    <h2>Client Feedback</h2>
+    <p>What our clients say</p>
+    <div class="fb-slides"></div>
+  </section>
+
+</main>
+
+<!-- BLACK: copyright -->
+<footer>
+  <p>&copy; <span id="copyrightYear">2026</span> WhistA Media. All rights reserved.</p>
+</footer>
+</div>
+
+<a href="#top" id="backToTop" aria-label="Back to top">&#8593;</a>
+<a href="mailto:whistamediaevents@gmail.com?subject=Get%20a%20quote" id="quoteFloat">&#9993; Get a Quote</a>
+<a href="feedback.html" id="feedbackToggle" aria-label="Send feedback">&#9993; Feedback</a>
+
+  <!-- connect your js file -->
+<script src="script.js"></script>
+</body>
+</html>
